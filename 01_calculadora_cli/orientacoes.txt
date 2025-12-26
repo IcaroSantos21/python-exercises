@@ -1,0 +1,15 @@
+Quais partes do problema podem virar funções?
+Calcúlos
+Resuldado
+Tratamento de excessões
+Menu de interação
+
+O loop principal controla o quê?
+Controla a entrada e saida dos dados do usuário
+
+Onde o erro pode acontecer?
+Na validação do tipo da entrada que o usuário fornecer
+
+Como o usuário sai do programa?
+Dentro do menu de interação terá uma opção para quando o usuário decidir
+sair do programa
