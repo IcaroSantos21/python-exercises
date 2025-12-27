@@ -12,7 +12,3 @@ def display_menu():
 def parse_option(option):
     return option.lower().strip()
 
-def ask_number():
-        num1 = int(input('Digite o primeiro número: '))
-        num2 = int(input('Digite o segundo número: '))
-        return num1, num2
