@@ -1,4 +1,4 @@
-def exibir_menu():
+def display_menu():
     print("----------CALCULADORA----------")
     print("           ESCOLHA:")
     print("           Soma = (+)")
@@ -9,18 +9,10 @@ def exibir_menu():
     print("           Porcentagem = (%)")
     print("           Sair = (s)")
 
-def selecao(opcao):
-    if opcao == '+':
-        print("somando")
-    elif opcao == '-':
-        print("subtraindo")
-    elif opcao == 'x':
-        print("multiplicando")
-    elif opcao == '/':
-        print("dividindo")
-    elif opcao == '*':
-        print("potencializando")
-    elif opcao == '%':
-        print("porcentagem")
-    else:
-        print('Erro: Opção inválida')
+def parse_option(option):
+    return option.lower().strip()
+
+def ask_number():
+        num1 = input('Digite o primeiro número: ')
+        num2 = input('Digite o segundo número: ')
+        return(num1 + num2)
