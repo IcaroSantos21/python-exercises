@@ -13,6 +13,6 @@ def parse_option(option):
     return option.lower().strip()
 
 def ask_number():
-        num1 = input('Digite o primeiro número: ')
-        num2 = input('Digite o segundo número: ')
-        return(num1 + num2)
+        num1 = int(input('Digite o primeiro número: '))
+        num2 = int(input('Digite o segundo número: '))
+        return num1, num2

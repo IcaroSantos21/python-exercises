@@ -22,4 +22,9 @@ def percentage(num1, num2):
     result = num1 * (num2 / 100)
     return result
 
-operators = {'+', '-', 'x', '/', '*', '%',}
+operators = {'+': sum_,
+             '-': subtract,
+             'x': multiply,
+             '/': division,
+             '*': enhance,
+             '%': percentage,}
