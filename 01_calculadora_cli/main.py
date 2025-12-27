@@ -15,11 +15,13 @@ while True:
         print('saindo...')
         break
     elif valid_option in operators:
-        try:
-            print(execute_operator(valid_option))
-        except ZeroDivisionError as err:
-            print(f'Erro: Tentativa de dividir por zero\nMensagem de erro: {err}')
-        except ValueError as err:
-            print(f'Erro: número digitado inválido\nMensagem de erro:{err}')
+        while True:
+            try:
+                print(execute_operator(valid_option))
+                break
+            except ZeroDivisionError as err:
+                print(f'Erro: Tentativa de dividir por zero\nMensagem de erro: {err}')
+            except ValueError as err:
+                print(f'Erro: número digitado inválido\nMensagem de erro:{err}')
     else:
        print('Erro: Opção selecionada inválida')
