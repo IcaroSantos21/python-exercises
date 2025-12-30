@@ -5,4 +5,5 @@ while True:
     
     cpf_digits = normalization_str(cpf)
     first_digit_validation(cpf_digits)
+    second_digit_validation(cpf_digits)
     break
