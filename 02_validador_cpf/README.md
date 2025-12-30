@@ -1,4 +1,3 @@
-```markdown
 # Validador de CPF em Python
 
 Este projeto implementa a validação de CPF em Python utilizando **boas práticas de engenharia de software**, com foco em organização, testabilidade e uso correto de bibliotecas externas.
@@ -9,7 +8,6 @@ O sistema possui:
 * **Testes automatizados:** Suite de testes com `pytest`.
 * **Arquitetura limpa:** Separação clara entre lógica de negócio, interface e execução.
 
----
 
 ## 📂 Estrutura do Projeto
 
