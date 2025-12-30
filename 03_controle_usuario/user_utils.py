@@ -4,7 +4,18 @@ def user_create(users, id, name, email, active=True):
             raise ValueError('ID já existe')
         if email == user['email']:
             raise ValueError('Email já existe')
-    if active == True:
-        active = '✅ativo'
-    users_add = {"id": id, "nome": name,"email": email, "ativo": active}
+    users_add = {"id": id, "name": name,"email": email, "activate": active}
     users.append(users_add)
+
+def deactivate_user(users, id):
+    user_found = False
+    for user in users:
+        if id == user['id']:
+            user_found = True
+            if user['activate'] is False:
+                raise ValueError('Usuário já está desativado')
+            user['activate'] = False
+            break
+        if not user_found:
+            raise('Usuário não encontrado')
+        
