@@ -30,3 +30,19 @@ def activate_user(users, id):
             break
         if not user_found:
             raise('Usuário não encontrado')
+        
+def list_users(users):
+    for user in users:
+        for key, item in user.items():
+            print(f"{key} ------ {item}")
+
+def show_user(users, id):
+    user_found = False
+    for user in users:
+        if id == user['id']:
+            user_found = True
+            for key, item in user.items():
+                print(f"{key} ------ {item}")
+            break
+        if not user_found:
+            raise ValueError('Usuário não encontrado')
