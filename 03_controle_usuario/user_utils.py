@@ -19,3 +19,14 @@ def deactivate_user(users, id):
         if not user_found:
             raise('Usuário não encontrado')
         
+def activate_user(users, id):
+    user_found = False
+    for user in users:
+        if id == user['id']:
+            user_found = True
+            if user['activate'] is True:
+                raise ValueError('Usuário já está ativo')
+            user['activate'] = True
+            break
+        if not user_found:
+            raise('Usuário não encontrado')
