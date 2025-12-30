@@ -1,7 +1,8 @@
 from cpf_utils import *
 
 while True:
-    cpf = input('Entre com o cpf: ')
+    cpf = str(input('Entre com o cpf: '))
     
     cpf_digits = normalization_str(cpf)
-    print(cpf_digits)
+    first_digit_validation(cpf_digits)
+    break
