@@ -6,3 +6,5 @@ def test_cpf_format():
     assert validate_cpf("547.117.390-25") is True
 def test_cpf_invalid():
     assert validate_cpf("111.111.111-11") is False
+def test_cpf_has_only_digits():
+    assert validate_cpf("abc.def.ghi-jk") is False
