@@ -32,8 +32,8 @@ def deactivate_user(users, id):
     user = search_user(users, id)
     if user['activate'] is False:
             raise ValueError('Usuário já está desativado')
-    user['activate'] == True
-        
+    user['activate'] = False
+
 def activate_user(users, id):
     user = search_user(users, id)
     if user['activate'] is True:
