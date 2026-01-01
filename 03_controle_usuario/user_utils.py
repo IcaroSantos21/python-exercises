@@ -42,10 +42,10 @@ def list_users(users):
 def show_user(users, id):
     user_found = False
     for user in users:
-        if id == user['id']:
+        if user['id'] == id:
             user_found = True
             for key, item in user.items():
                 print(f"{key} ------ {item}")
             break
-        if not user_found:
-            raise ValueError('Usuário não encontrado')
+    if not user_found:
+        raise ValueError('Usuário não encontrado')
