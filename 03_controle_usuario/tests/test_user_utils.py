@@ -2,7 +2,7 @@ import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 import pytest
-import user_utils
+from user_utils import search_user, user_create
 
 def test_search_user_found():
     users = [
@@ -10,7 +10,7 @@ def test_search_user_found():
         {'id': 2, 'name': 'patricia', 'email': 'patricia', 'activate': True}
     ]
 
-    user = user_utils.search_user(users, 2)
+    user = search_user(users, 2)
 
     assert user['name'] == 'patricia'
 
@@ -20,4 +20,41 @@ def test_search_user_not_found():
     ]
 
     with pytest.raises(ValueError):
-        user_utils.search_user(users, 99)
+        search_user(users, 99)
+
+def test_user_create_success():
+    users = []
+    user_create(users, 'isabela', 'isabela@gmail.com',)
+
+    assert len(users) == 1
+    assert users[0]['name'] == 'isabela'
+    assert users[0]['email'] == 'isabela@gmail.com'
+    assert users[0]['activate'] is True
+
+def test_user_create_first_id_is_1():
+    users = []
+    user_create(users, 'nicolas', 'nicolas@gmail.com')
+
+    assert users[0]['id'] == 1
+
+def test_user_create_id_increment():
+    users = []
+    user_create(users, 'maria', 'maria@gmail.com')
+    user_create(users, 'yasmin', 'yasmin@gmail.com')
+
+    assert users[0]['id'] == 1
+    assert users[1]['id'] == 2
+
+def test_user_create_duplicate_email():
+    users = []
+    user_create(users, 'camilly', 'camilly@gmail.com')
+    with pytest.raises(ValueError):
+        user_create(users, 'outra', 'camilly@gmail.com')
+
+def test_user_create_does_not_modify_list_on_error():
+    users = []
+    user_create(users, 'camilly', 'camilly@gmail.com')
+    with pytest.raises(ValueError):
+        user_create(users, 'outra', 'camilly@gmail.com')
+
+    assert len(users) == 1
