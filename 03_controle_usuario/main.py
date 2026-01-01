@@ -15,21 +15,31 @@ while True:
             print(f"O usuário {name} foi criado com sucesso")
             json_utils.save_json('users.json', users)
         elif option == 2:
+            id = int(input('Digite o id do usuário que deseja alterar: '))
+            name = input('Digite o novo nome do usuário '
+            '( se não quiser alterar): ')
+            email = input('Digite o novo email do usuário: '
+            '( se não quiser alterar): ')
+            new_data = {'name': name, 'email': email}
+            user_utils.user_update(users, id, new_data)
+            print('Usuário atualizado com sucesso')
+            json_utils.save_json('users.json', users)
+        elif option == 3:
             id = int(input('Digite o id do usuário que deseja ativar: '))
             user_utils.activate_user(users, id)
             print(f"Usuário ativado com sucesso")
             json_utils.save_json('users.json', users)
-        elif option == 3:
+        elif option == 4:
             id = int(input('Digite o id do usuário que deseja desativar: '))
             user_utils.deactivate_user(users, id)
             print(f"Usuário desativado com sucesso")
             json_utils.save_json('users.json', users)
-        elif option == 4:
-            user_utils.list_users(users)
         elif option == 5:
+            user_utils.list_users(users)
+        elif option == 6:
             id = int(input('Digite o id do usuário que deseja ver: '))
             user_utils.show_user(users, id)
-        elif option == 6:
+        elif option == 7:
             print("saindo...")
             break
         else:

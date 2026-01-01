@@ -18,6 +18,16 @@ def search_user(users, id):
     
     raise ValueError('Usuário não encontrado')
 
+def user_update(users, id, new_data):
+    user = search_user(users, id)
+    if 'id' in new_data:
+        raise ValueError('Não é permitido trocar o id')
+    for key, value in new_data.items():
+        if isinstance(value, str) and value.strip() == '':
+            continue
+        user[key] = value
+    return user
+    
 def deactivate_user(users, id):
     user = search_user(users, id)
     if user['activate'] is False:

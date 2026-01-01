@@ -2,12 +2,12 @@
     {
         "id": 1,
         "name": "icaro",
-        "email": "icaro@gmail.com",
+        "email": "icaro21@gmail.com",
         "activate": false
     },
     {
         "id": 2,
-        "name": "joao",
+        "name": "João Pedro",
         "email": "joao@gmail.com",
         "activate": true
     }
