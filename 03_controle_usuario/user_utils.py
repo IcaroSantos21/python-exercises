@@ -1,10 +1,14 @@
-def user_create(users, id, name, email, active=True):
+def user_create(users, name, email, active=True):
+    if users:
+        next_id = max(user['id'] for user in users) + 1
+    else:
+        next_id = 1
     for user in users:
         if id == user['id']:
             raise ValueError('ID já existe')
         if email == user['email']:
             raise ValueError('Email já existe')
-    users_add = {"id": id, "name": name,"email": email, "activate": active}
+    users_add = {"id": next_id, "name": name,"email": email, "activate": active}
     users.append(users_add)
 
 def deactivate_user(users, id):
@@ -22,15 +26,14 @@ def deactivate_user(users, id):
 def activate_user(users, id):
     user_found = False
     for user in users:
-        if id == user['id']:
+        if user['id'] == id:
             user_found = True
             if user['activate'] is True:
                 raise ValueError('Usuário já está ativo')
-            user['activate'] = True
+            user['activate'] == True
             break
         if not user_found:
             raise('Usuário não encontrado')
-        
 def list_users(users):
     for user in users:
         for key, item in user.items():
